@@ -29,3 +29,107 @@ This system is intended for a wide range of users, including:
 - **Academic Researchers** and **Students** in data science or related fields who require a practical demonstration of database management in action.
 - **Policy Makers** and **Economic Analysts** interested in labor market trends and compensation analysis.
 
+Sure, let's update the installation guide with the additional details to include the execution of SQL scripts via the PostgreSQL command line after cloning the repository, and the subsequent steps to import the CSV files through pgAdmin.
+
+## Installation
+
+This section guides you through setting up the Data Science Salaries Management System on your local machine. This setup assumes that you have administrative access to your system and the necessary rights to install software and manage databases.
+
+### Prerequisites
+1. **PostgreSQL**: You need PostgreSQL installed on your computer. You can download it from [the official PostgreSQL website](https://www.postgresql.org/download/). Ensure that you remember the credentials for the PostgreSQL superuser (usually `postgres`), as you'll need them to create databases and execute SQL scripts.
+2. **Python**: This project requires Python. It's recommended to use Python 3.8 or higher. You can download it from [the official Python website](https://www.python.org/downloads/).
+3. **psycopg2**: This Python library is required for PostgreSQL database interaction. Install it via pip:
+   ```bash
+   pip install psycopg2
+   ```
+4. **Git**: To clone the repository, make sure you have Git installed. You can download it from [the Git website](https://git-scm.com/downloads).
+
+### Database Setup
+#### Creating the Database Tables
+1. **Clone the Repository**:
+   - First, clone the repository to your local machine:
+
+2. **Run SQL Scripts**:
+   - Open your PostgreSQL command line tool (e.g., psql, pgAdmin SQL shell) and connect to your PostgreSQL server.
+   - Execute the SQL scripts to create the necessary tables. These scripts can be found in the `src` directory of the cloned repository in 'Scripts' or create them as follows:
+
+     ```sql
+     -- Create Employees Table
+     CREATE TABLE Employees (
+         dsid INT PRIMARY KEY,
+         employee_residence VARCHAR(2),
+         remote_ratio INT,
+         employment_type VARCHAR(50),
+         company_location VARCHAR(2),
+         company_size VARCHAR(1)
+     );
+
+     -- Create JobSalaries Table
+     CREATE TABLE JobSalaries (
+         dsid INT PRIMARY KEY,
+         job_title VARCHAR(255),
+         experience_level VARCHAR(50),
+         work_year VARCHAR(4),
+         salary NUMERIC(12, 2),
+         salary_currency VARCHAR(3),
+         salary_in_usd NUMERIC(12, 2),
+         FOREIGN KEY (dsid) REFERENCES Employees(dsid)
+     );
+
+     -- Filename: create_ds_salaries_table.sql
+
+     -- Create DataScienceSalaries Table
+     CREATE TABLE DataScienceSalaries (
+         dsid INT PRIMARY KEY,
+         work_year INT,
+         experience_level VARCHAR(2),
+         employment_type VARCHAR(2),
+         job_title VARCHAR(255),
+         salary INT,
+         salary_currency VARCHAR(3),
+         salary_in_usd INT,
+         employee_residence VARCHAR(2),
+         remote_ratio INT,
+         company_location VARCHAR(2),
+         company_size VARCHAR(1)
+     );
+     ```
+
+#### Importing Data
+3. **Load Data into the Tables**:
+   - Open pgAdmin and navigate to the respective database.
+   - For each table (`Employees`, `JobSalaries`, `DataScienceSalaries`), follow these steps:
+     - Right-click on the table.
+     - Navigate to the import tool usually found under Tools > Import.
+     - Choose the corresponding CSV file from the `data` folder in the cloned repository.
+     - Make sure to set the format as CSV and match the columns correctly.
+     - Execute the import for each table.
+
+### Running the Application
+4. **Execute the Python Script**:
+## Python Application Setup
+
+Before running the `DS_Salaries_PyCode.py` script, you need to ensure that your Python environment is properly configured and that the script is set up to connect to your local PostgreSQL server.
+
+### Configuring the Database Connection
+
+The Python script uses `psycopg2` to connect to the PostgreSQL database. You will need to modify the database connection settings in the script to match your PostgreSQL credentials and server details. Follow these steps to update the connection settings:
+
+1. **Open the `DS_Salaries_PyCode.py` file**:
+   - Navigate to the `src` directory where `DS_Salaries_PyCode.py` is located.
+   - Open the file in a text editor or an IDE of your choice (such as VS Code).
+
+2. **Locate the Database Connection Section**:
+   - Find the section in the script where the database connection is set up. It will look something like this:
+     ```python
+     host_name = "localhost"
+     db_user = "postgres"
+     db_password = "your_password"
+     db_name = "postgres"
+     ```
+   - Replace `"localhost"`, `"postgres"`, and `"your_password"` with your PostgreSQL server's host name, user name, and password, respectively.
+   - If you have created a specific database for this project, replace `"postgres"` with the name of your database.
+
+### Common Issues and Troubleshooting
+- **PostgreSQL Connection Issues**: Ensure that PostgreSQL is running and your credentials are correct.
+- **Python or Library Not Found**: Verify that Python and all required libraries (`psycopg2`) are correctly installed and available in your system's PATH.
