@@ -29,8 +29,6 @@ This system is intended for a wide range of users, including:
 - **Academic Researchers** and **Students** in data science or related fields who require a practical demonstration of database management in action.
 - **Policy Makers** and **Economic Analysts** interested in labor market trends and compensation analysis.
 
-Sure, let's update the installation guide with the additional details to include the execution of SQL scripts via the PostgreSQL command line after cloning the repository, and the subsequent steps to import the CSV files through pgAdmin.
-
 ## Installation
 
 This section guides you through setting up the Data Science Salaries Management System on your local machine. This setup assumes that you have administrative access to your system and the necessary rights to install software and manage databases.
