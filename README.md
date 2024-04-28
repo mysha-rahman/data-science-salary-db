@@ -130,6 +130,38 @@ The Python script uses `psycopg2` to connect to the PostgreSQL database. You wil
    - Replace `"localhost"`, `"postgres"`, and `"your_password"` with your PostgreSQL server's host name, user name, and password, respectively.
    - If you have created a specific database for this project, replace `"postgres"` with the name of your database.
 
+## Below are descriptions of each function in the provided code:
+
+1. `table_insert(table, data, columns=None)`: Inserts a new record into the specified table with the given data. Optionally, you can specify the columns if you want to insert data into specific columns only.
+
+2. `table_delete(table, id)`: Deletes a record from the specified table based on the provided ID.
+
+3. `table_update(table, id, column, new_value)`: Updates a specific column of a record in the specified table with a new value, based on the provided ID.
+
+4. `insert_employee_entry()`: Prompts the user to enter data for a new employee entry, validates the input, converts it to the appropriate data types, and inserts it into the `employees` table.
+
+5. `delete_employee_entry()`: Prompts the user to enter the ID of the employee to be deleted and then deletes the corresponding records from both the `JobSalaries` and `Employees` tables.
+
+6. `update_employee_salary()`: Prompts the user to enter the ID of the employee and the new salary details, then updates the salary information for the specified employee in the `jobsalaries` table.
+
+7. `search_employee_entry()`: Prompts the user to enter the ID of the employee to search for and retrieves and prints the employee's information if found.
+
+8. `count_employment_type_entry()`: Prompts the user to enter an employment type, counts the number of employees with that type, and prints the count.
+
+9. `sort_employee_salary()`: Retrieves the first 1000 employee entries joined with their salary information from the `employees` and `JobSalaries` tables, sorted by salary in descending order, and prints them.
+
+10. `join_employee_salary_entry()`: Retrieves the first 1000 employee entries joined with their salary information from the `employees` and `JobSalaries` tables, sorted by salary in descending order, and prints them.
+
+11. `group_employee_entry()`: Groups employees by experience level, counts the number of employees in each group, and prints the results.
+
+12. `subquery_employee_entry()`: Prompts the user to enter a job title, retrieves and prints employee information for employees with that job title, limited to 1000 entries.
+
+13. `transaction_delete_employee()`: Prompts the user to enter the ID of the employee to be deleted, starts a transaction, deletes the employee's records from both the `JobSalaries` and `Employees` tables, and commits the transaction if successful.
+
+14. `populate_employee_data_from_csv()`: Reads data from a CSV file containing employee information, skips the header row, and populates the `employees` table with the data.
+
+15. `stateStart()`: Main function that presents a menu to the user, prompts for input, and calls the corresponding function based on the user's choice.
+
 ### Common Issues and Troubleshooting
 - **PostgreSQL Connection Issues**: Ensure that PostgreSQL is running and your credentials are correct.
 - **Python or Library Not Found**: Verify that Python and all required libraries (`psycopg2`) are correctly installed and available in your system's PATH.
