@@ -3,7 +3,7 @@
 ## Introduction
 Welcome to the Data Science Salaries Management System, a robust database management application designed to handle, query, and manipulate data related to salaries within the data science profession. This project was inspired by the comprehensive [Data Science Salaries Dataset](https://www.kaggle.com/datasets/zain280/data-science-salaries/data) available on Kaggle, which features detailed compensation information across various sectors, geographical locations, and professional levels.
 
-Our system is built on PostgreSQL, utilizing advanced database design and SQL scripting to ensure efficient data handling and retrieval. The system is interfaced through a Python-based Command Line Interface (CLI), providing a user-friendly method for performing database operations such as adding, deleting, updating, and querying salary records.
+My system is built on PostgreSQL, utilizing advanced database design and SQL scripting to ensure efficient data handling and retrieval. The system is interfaced through a Python-based Command Line Interface (CLI), providing a user-friendly method for performing database operations such as adding, deleting, updating, and querying salary records.
 
 ## Project Overview
 The Data Science Salaries Management System serves multiple purposes:
@@ -45,7 +45,8 @@ This section guides you through setting up the Data Science Salaries Management 
 ### Database Setup
 #### Creating the Database Tables
 1. **Clone the Repository**:
-   - First, clone the repository to your local machine:
+   - First, clone the repository to your local machine
+   - The 'data' folder contains all three necessary CSV files for the database, and the 'src' folder includes the Python and SQL code needed for the project.
 
 2. **Run SQL Scripts**:
    - Open your PostgreSQL command line tool (e.g., psql, pgAdmin SQL shell) and connect to your PostgreSQL server.
