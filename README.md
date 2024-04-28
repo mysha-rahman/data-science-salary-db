@@ -76,8 +76,6 @@ This section guides you through setting up the Data Science Salaries Management 
          FOREIGN KEY (dsid) REFERENCES Employees(dsid)
      );
 
-     -- Filename: create_ds_salaries_table.sql
-
      -- Create DataScienceSalaries Table
      CREATE TABLE DataScienceSalaries (
          dsid INT PRIMARY KEY,
